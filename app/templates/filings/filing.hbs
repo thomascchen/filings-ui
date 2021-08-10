@@ -13,3 +13,64 @@
   <li>{{this.model.filer.state}}</li>
   <li>{{this.model.filer.zip}}</li>
 </ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Receiver
+      </th>
+      <th>
+        EIN
+      </th>
+      <th>
+        Street
+      </th>
+      <th>
+        City
+      </th>
+      <th>
+        State
+      </th>
+      <th>
+        Zip
+      </th>
+      <th>
+        Purpose
+      </th>
+      <th>
+        Cash Amount
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model.awards as |award|}}
+      <tr>
+        <td>
+          {{award.receiver.name}}
+        </td>
+        <td>
+          {{award.receiver.ein}}
+        </td>
+        <td>
+          {{award.receiver.street}}
+        </td>
+        <td>
+          {{award.receiver.city}}
+        </td>
+        <td>
+          {{award.receiver.state}}
+        </td>
+        <td>
+          {{award.receiver.zip}}
+        </td>
+        <td>
+          {{award.purpose}}
+        </td>
+        <td>
+          {{award.cashAmount}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
