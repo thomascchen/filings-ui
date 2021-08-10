@@ -1,0 +1,16 @@
+{{page-title "Filings"}}
+
+<h1>Filings</h1>
+
+{{#each-in (group-by "filer.name" (sort-by "filer.name" this.model)) as |filerName filings|}}
+  <h3>{{filerName}}</h3>
+  <ul>
+    {{#each filings as |filing|}}
+      <p>
+        <LinkTo @route="filings.filing" @model={{filing}}>
+          {{filing.taxYear}} {{if filing.amended "(amended)"}}
+        </LinkTo>
+      </p>
+    {{/each}}
+  </ul>
+{{/each-in}}

@@ -1,0 +1,15 @@
+{{page-title "Filing"}}
+
+<h1>Filing</h1>
+
+<ul>
+  <li>
+    {{this.model.taxYear}} {{if this.model.amended "(amended)"}}
+  </li>
+  <li>EIN: {{this.model.filer.ein}}</li>
+  <li>{{this.model.filer.name}}</li>
+  <li>{{this.model.filer.street}}</li>
+  <li>{{this.model.filer.city}}</li>
+  <li>{{this.model.filer.state}}</li>
+  <li>{{this.model.filer.zip}}</li>
+</ul>
