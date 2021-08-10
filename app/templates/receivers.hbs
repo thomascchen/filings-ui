@@ -1,0 +1,13 @@
+{{page-title "Receivers"}}
+
+<h1>Receivers</h1>
+
+<ul>
+  {{#each this.model as |receiver|}}
+    <li>
+      {{receiver.name}}
+    </li>
+  {{/each}}
+</ul>
+
+{{outlet}}

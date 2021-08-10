@@ -7,7 +7,8 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('filings', function() {
+  this.route('filings', function () {
     this.route('filing', { path: '/:filing_id' });
   });
+  this.route('receivers');
 });
