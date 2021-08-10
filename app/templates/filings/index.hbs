@@ -1,16 +1,38 @@
-{{page-title "Filings"}}
+{{page-title "Tax Filings"}}
 
-<h1>Filings</h1>
+<div class="pb-5 border-b border-gray-200">
+  <h3 class="text-lg leading-6 font-medium text-gray-900">
+    Tax Filings
+  </h3>
+</div>
 
 {{#each-in (group-by "filer.name" (sort-by "filer.name" this.model)) as |filerName filings|}}
-  <h3>{{filerName}}</h3>
-  <ul>
-    {{#each filings as |filing|}}
-      <p>
-        <LinkTo @route="filings.filing" @model={{filing}}>
-          {{filing.taxYear}} {{if filing.amended "(amended)"}}
-        </LinkTo>
-      </p>
-    {{/each}}
-  </ul>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md mb-12">
+      <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      {{filerName}}
+    </h3>
+  </div>
+    <ul class="divide-y divide-gray-200">
+      {{#each filings as |filing|}}
+        <li>
+          <LinkTo @route="filings.filing" @model={{filing}} class="block hover:bg-gray-50">
+            <div class="px-4 py-4 flex items-center sm:px-6">
+              <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+                <div class="truncate">
+                  <div class="flex text-sm">
+                    <p class="font-medium text-gray-600 truncate">
+                      {{filing.taxYear}} {{if filing.amended "(amended)"}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </LinkTo>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 {{/each-in}}
+
+{{outlet}}
